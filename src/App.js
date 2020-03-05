@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Recipe from './Recipe';
-// const api_key = process.env.REACT_APP_API_KEY;
-// const api_id = process.env.REACT_APP_API_ID;
+const api_key = process.env.REACT_APP_API_KEY;
+const api_id = process.env.REACT_APP_API_ID;
 
 function App() {
   const [recipes, setRecipes] = useState([]);
