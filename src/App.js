@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -16,13 +17,16 @@ function App() {
 
   // `https://api.edamam.com/search?q=${query}&app_id=${api_id}&app_key=${api_key}`
   const getRecipes = async () => {
-    const response = await fetch(
-      `/search?q=${query}&app_id=${api_id}&app_key=${api_key}`
-    );
+    try {
+      const response = await axios.get(
+        `/search?q=${query}&app_id=${api_id}&app_key=${api_key}`
+      );
 
-    const data = await response.json();
-    setRecipes(data.hits);
-    console.log(data.hits);
+      setRecipes(response.data.hits);
+      console.log(response.data.hits);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const updateSearch = e => {
