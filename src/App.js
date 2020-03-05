@@ -19,7 +19,7 @@ function App() {
   const getRecipes = async () => {
     try {
       const response = await axios.get(
-        `/search?q=${query}&app_id=${api_id}&app_key=${api_key}`
+        `https://api.edamam.com/search?q=${query}&app_id=${api_id}&app_key=${api_key}`
       );
 
       setRecipes(response.data.hits);
